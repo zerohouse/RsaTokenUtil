@@ -46,7 +46,7 @@ public class RsaTokenUtil {
     }
 
     public String getToken(Tokenize tokenize) {
-        JWTCreator.Builder builder = tokenize.setProperties(JWT.create()
+        JWTCreator.Builder builder = tokenize.build(JWT.create()
                 .withExpiresAt(DateUtils.addDays(new Date(), expireDays))
                 .withIssuer(issuer));
         return builder.sign(algorithm);
